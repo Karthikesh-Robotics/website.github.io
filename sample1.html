@@ -1,0 +1,852 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, 
+								initial-scale=1.0"> 
+	<title>Document</title> 
+	<link rel="stylesheet" href="/style.css"> 
+	<script src="/script.js" defer></script> 
+	<link rel="stylesheet" href= 
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> 
+</head> 
+
+<style>
+    * { 
+	margin: 0; 
+	padding: 0; 
+	box-sizing: border-box; 
+	font-family: 'Times New Roman', Times, serif; 
+} 
+
+body { 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	min-height: 100vh; 
+	padding: 0 35px; 
+	background: rgb(228, 220, 220); 
+} 
+
+.wrapper { 
+    background-color: transparent;
+	/* max-width: 1100px; 
+	width: 100%; 
+	position: relative;  */
+
+} 
+
+.wrapper i { 
+	/* height: 50px; 
+	width: 50px; 
+	background: rgb(118, 233, 118); 
+	text-align: center; 
+	line-height: 50px; 
+	border-radius: 50%; 
+	cursor: pointer; 
+	position: absolute; 
+	top: 50%; 
+	font-size: 1.25 rem;  */
+	transform: translateY(-50%); 
+	/* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);  */
+
+} 
+
+.wrapper i:first-child { 
+	left: -22px; 
+
+} 
+
+.wrapper i:last-child { 
+	right: -22px; 
+
+} 
+
+.wrapper .carousel { 
+     background-color: transparent;
+	display: grid; 
+	grid-auto-flow: column; 
+	grid-auto-columns: calc((100% / 5) - 70px); 
+	gap: 10px; 
+	overflow-x: auto; 
+	scroll-snap-type: x mandatory; 
+	scroll-behavior: smooth; 
+	scrollbar-width: 0; 
+} 
+
+.carousel::-webkit-scrollbar { 
+	display: none; 
+} 
+
+.carousel :where(.card, .img) { 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+} 
+
+.carousel.dragging { 
+	scroll-snap-type: none; 
+	scroll-behavior: auto; 
+} 
+
+.carousel.no-transition { 
+	scroll-behavior: auto; 
+} 
+
+.carousel.dragging .card { 
+	cursor: grab; 
+	user-select: none; 
+} 
+
+.carousel .card { 
+	scroll-snap-align: start; 
+	/* height: 340px;  */
+	list-style: none; 
+	background:transparent; 
+	border-radius: 8px; 
+	display: flex; 
+	cursor: pointer; 
+	/* width: 98%;  */
+	padding-bottom: 15px; 
+	align-items: center; 
+	justify-content: center; 
+	flex-direction: column; 
+} 
+
+.card .img { 
+	background: green; 
+	width: 145px; 
+	height: 145px; 
+	border-radius: 50%; 
+
+} 
+
+.card .img img { 
+	width: 140px; 
+	height: 140px; 
+	object-fit: cover; 
+	border-radius: 50%; 
+	border: 4px solid #fff; 
+} 
+
+.card h2 { 
+	font-weight: 500; 
+	font-size: 1.56rem; 
+	margin: 30px 0 5px; 
+} 
+
+.card span { 
+	color: #6a6d78; 
+	font-size: 1.31rem; 
+
+} 
+
+@media screen and (max-width: 900px) { 
+	.wrapper .carousel { 
+		grid-auto-columns: calc((100% / 2) - 9px); 
+
+	} 
+} 
+
+@media screen and (max-width: 600px) { 
+	.wrapper .carousel { 
+		grid-auto-columns: 100%; 
+
+	} 
+}
+
+
+.footer {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 30px 30px 20px 30px;
+  color: #2f2f2f;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footer > * {
+  flex:  1 100%;
+}
+
+.footer__addr {
+  margin-right: 1.25em;
+  margin-bottom: 2em;
+}
+
+.footer__logo {
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  text-transform: lowercase;
+  font-size: 1.5rem;
+}
+
+.footer__addr h2 {
+  margin-top: 1.3em;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.nav__title {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.footer address {
+  font-style: normal;
+  color: #999;
+}
+
+.footer__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  max-width: max-content;
+  background-color: rgb(33, 33, 33, 0.07);
+  border-radius: 100px;
+  color: #2f2f2f;
+  line-height: 0;
+  margin: 0.6em 0;
+  font-size: 1rem;
+  padding: 0 1.3em;
+}
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer li {
+  line-height: 2em;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer__nav {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.footer__nav > * {
+  flex: 1 50%;
+  margin-right: 1.25em;
+}
+
+.nav__ul a {
+  color: #999;
+}
+
+.nav__ul--extra {
+  column-count: 2;
+  column-gap: 1.25em;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  color: #999;
+}
+  
+.legal__links {
+  display: flex;
+  align-items: center;
+}
+
+.heart {
+  color: #2f2f2f;
+}
+
+@media screen and (min-width: 24.375em) {
+  .legal .legal__links {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 40.375em) {
+  .footer__nav > * {
+    flex: 1;
+  }
+  
+  .nav__item--extra {
+    flex-grow: 2;
+  }
+  
+  .footer__addr {
+    flex: 1 0px;
+  }
+  
+  .footer__nav {
+    flex: 2 0px;
+  }
+}
+
+.footer_main{
+  font-family: acumin-pro, system-ui, sans-serif;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-size: 14px;
+  background-color: #f4f4f4;
+  align-items: start;
+  min-height: 100vh;
+}
+
+</style>
+
+<body> 
+
+	<div class="wrapper"> 
+		<i id="left" class="fa-solid fas fa-angle-left"></i> 
+		<ul class="carousel"> 
+			<li class="card"> 
+				<div class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md" >
+                    <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#" style="height: 200px;"> 
+                      <img class="object-cover" src="img/joystick.png" alt="product image" />
+                      <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">39% OFF</span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 10px; background-color: transparent;"><i class='bx bx-heart' style="color: black; font-size: 35px;"></i></span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 40px; background-color: transparent;" ><i class="fa-regular fa-eye" style="color:black; font-size: 35px; margin-top: 35px;"></i></span>
+                    </a>
+                    <div class="mt-4 px-5 pb-5">
+                      <a href="#">
+                        <h5 class="text-xl tracking-tight text-slate-900">HAVIT HV-G92 Gamepad</h5>
+                      </a>
+                      <div class="mt-2 mb-5 flex items-center justify-between">
+                        <p>
+                          <span class="text-3xl font-bold text-slate-900">$120</span>
+                          <!-- <span class="text-sm text-slate-900 line-through">$699</span> -->
+                        </p>
+                        
+                      </div>
+                      <div class="flex items-center">
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <span class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
+                      </div>
+                      <a href="#" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Add to cart</a
+                      >
+                    </div>
+                  </div> 
+			</li><li class="card"> 
+				<div class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md" >
+                    <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#" style="height: 200px;"> 
+                      <img class="object-cover" src="img/joystick.png" alt="product image" />
+                      <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">39% OFF</span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 10px; background-color: transparent;"><i class='bx bx-heart' style="color: black; font-size: 35px;"></i></span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 40px; background-color: transparent;" ><i class="fa-regular fa-eye" style="color:black; font-size: 35px; margin-top: 35px;"></i></span>
+                    </a>
+                    <div class="mt-4 px-5 pb-5">
+                      <a href="#">
+                        <h5 class="text-xl tracking-tight text-slate-900">HAVIT HV-G92 Gamepad</h5>
+                      </a>
+                      <div class="mt-2 mb-5 flex items-center justify-between">
+                        <p>
+                          <span class="text-3xl font-bold text-slate-900">$120</span>
+                          <!-- <span class="text-sm text-slate-900 line-through">$699</span> -->
+                        </p>
+                        
+                      </div>
+                      <div class="flex items-center">
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <span class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
+                      </div>
+                      <a href="#" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Add to cart</a
+                      >
+                    </div>
+                  </div> 
+			</li><li class="card"> 
+				<div class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md" >
+                    <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#" style="height: 200px;"> 
+                      <img class="object-cover" src="img/joystick.png" alt="product image" />
+                      <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">39% OFF</span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 10px; background-color: transparent;"><i class='bx bx-heart' style="color: black; font-size: 35px;"></i></span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 40px; background-color: transparent;" ><i class="fa-regular fa-eye" style="color:black; font-size: 35px; margin-top: 35px;"></i></span>
+                    </a>
+                    <div class="mt-4 px-5 pb-5">
+                      <a href="#">
+                        <h5 class="text-xl tracking-tight text-slate-900">HAVIT HV-G92 Gamepad</h5>
+                      </a>
+                      <div class="mt-2 mb-5 flex items-center justify-between">
+                        <p>
+                          <span class="text-3xl font-bold text-slate-900">$120</span>
+                          <!-- <span class="text-sm text-slate-900 line-through">$699</span> -->
+                        </p>
+                        
+                      </div>
+                      <div class="flex items-center">
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <span class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
+                      </div>
+                      <a href="#" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Add to cart</a
+                      >
+                    </div>
+                  </div> 
+			</li><li class="card"> 
+				<div class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md" >
+                    <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#" style="height: 200px;"> 
+                      <img class="object-cover" src="img/joystick.png" alt="product image" />
+                      <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">39% OFF</span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 10px; background-color: transparent;"><i class='bx bx-heart' style="color: black; font-size: 35px;"></i></span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 40px; background-color: transparent;" ><i class="fa-regular fa-eye" style="color:black; font-size: 35px; margin-top: 35px;"></i></span>
+                    </a>
+                    <div class="mt-4 px-5 pb-5">
+                      <a href="#">
+                        <h5 class="text-xl tracking-tight text-slate-900">HAVIT HV-G92 Gamepad</h5>
+                      </a>
+                      <div class="mt-2 mb-5 flex items-center justify-between">
+                        <p>
+                          <span class="text-3xl font-bold text-slate-900">$120</span>
+                          <!-- <span class="text-sm text-slate-900 line-through">$699</span> -->
+                        </p>
+                        
+                      </div>
+                      <div class="flex items-center">
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <span class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
+                      </div>
+                      <a href="#" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Add to cart</a
+                      >
+                    </div>
+                  </div> 
+			</li><li class="card"> 
+				<div class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md" >
+                    <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#" style="height: 200px;"> 
+                      <img class="object-cover" src="img/joystick.png" alt="product image" />
+                      <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">39% OFF</span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 10px; background-color: transparent;"><i class='bx bx-heart' style="color: black; font-size: 35px;"></i></span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 40px; background-color: transparent;" ><i class="fa-regular fa-eye" style="color:black; font-size: 35px; margin-top: 35px;"></i></span>
+                    </a>
+                    <div class="mt-4 px-5 pb-5">
+                      <a href="#">
+                        <h5 class="text-xl tracking-tight text-slate-900">HAVIT HV-G92 Gamepad</h5>
+                      </a>
+                      <div class="mt-2 mb-5 flex items-center justify-between">
+                        <p>
+                          <span class="text-3xl font-bold text-slate-900">$120</span>
+                          <!-- <span class="text-sm text-slate-900 line-through">$699</span> -->
+                        </p>
+                        
+                      </div>
+                      <div class="flex items-center">
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <span class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
+                      </div>
+                      <a href="#" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Add to cart</a
+                      >
+                    </div>
+                  </div> 
+			</li><li class="card"> 
+				<div class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md" >
+                    <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#" style="height: 200px;"> 
+                      <img class="object-cover" src="img/joystick.png" alt="product image" />
+                      <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">39% OFF</span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 10px; background-color: transparent;"><i class='bx bx-heart' style="color: black; font-size: 35px;"></i></span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 40px; background-color: transparent;" ><i class="fa-regular fa-eye" style="color:black; font-size: 35px; margin-top: 35px;"></i></span>
+                    </a>
+                    <div class="mt-4 px-5 pb-5">
+                      <a href="#">
+                        <h5 class="text-xl tracking-tight text-slate-900">HAVIT HV-G92 Gamepad</h5>
+                      </a>
+                      <div class="mt-2 mb-5 flex items-center justify-between">
+                        <p>
+                          <span class="text-3xl font-bold text-slate-900">$120</span>
+                          <!-- <span class="text-sm text-slate-900 line-through">$699</span> -->
+                        </p>
+                        
+                      </div>
+                      <div class="flex items-center">
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <span class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
+                      </div>
+                      <a href="#" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Add to cart</a
+                      >
+                    </div>
+                  </div> 
+			</li><li class="card"> 
+				<div class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md" >
+                    <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#" style="height: 200px;"> 
+                      <img class="object-cover" src="img/joystick.png" alt="product image" />
+                      <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">39% OFF</span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 10px; background-color: transparent;"><i class='bx bx-heart' style="color: black; font-size: 35px;"></i></span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 40px; background-color: transparent;" ><i class="fa-regular fa-eye" style="color:black; font-size: 35px; margin-top: 35px;"></i></span>
+                    </a>
+                    <div class="mt-4 px-5 pb-5">
+                      <a href="#">
+                        <h5 class="text-xl tracking-tight text-slate-900">HAVIT HV-G92 Gamepad</h5>
+                      </a>
+                      <div class="mt-2 mb-5 flex items-center justify-between">
+                        <p>
+                          <span class="text-3xl font-bold text-slate-900">$120</span>
+                          <!-- <span class="text-sm text-slate-900 line-through">$699</span> -->
+                        </p>
+                        
+                      </div>
+                      <div class="flex items-center">
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <span class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
+                      </div>
+                      <a href="#" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Add to cart</a
+                      >
+                    </div>
+                  </div> 
+			</li><li class="card"> 
+				<div class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md" >
+                    <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#" style="height: 200px;"> 
+                      <img class="object-cover" src="img/joystick.png" alt="product image" />
+                      <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">39% OFF</span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 10px; background-color: transparent;"><i class='bx bx-heart' style="color: black; font-size: 35px;"></i></span>
+                      <span class="absolute top-0 left-240 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white" style="left: 230px; top: 40px; background-color: transparent;" ><i class="fa-regular fa-eye" style="color:black; font-size: 35px; margin-top: 35px;"></i></span>
+                    </a>
+                    <div class="mt-4 px-5 pb-5">
+                      <a href="#">
+                        <h5 class="text-xl tracking-tight text-slate-900">HAVIT HV-G92 Gamepad</h5>
+                      </a>
+                      <div class="mt-2 mb-5 flex items-center justify-between">
+                        <p>
+                          <span class="text-3xl font-bold text-slate-900">$120</span>
+                          <!-- <span class="text-sm text-slate-900 line-through">$699</span> -->
+                        </p>
+                        
+                      </div>
+                      <div class="flex items-center">
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <span class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
+                      </div>
+                      <a href="#" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Add to cart</a
+                      >
+                    </div>
+                  </div> 
+			</li> 
+		</ul> 
+		<!-- <i id="right" class="fa-solid fas fa-angle-right"></i>  -->
+	</div> 
+
+
+    <!-- footer -->
+ <div class="footer_main">
+        
+<footer class="footer">
+    <div class="footer__addr">
+      <h1 class="footer__logo">Something</h1>
+          
+      <h2>Contact</h2>
+      
+      <address>
+        5534 Somewhere In. The World 22193-10212<br>
+            
+        <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+      </address>
+    </div>
+    
+    <ul class="footer__nav">
+      <li class="nav__item">
+        <h2 class="nav__title">Media</h2>
+  
+        <ul class="nav__ul">
+          <li>
+            <a href="#">Online</a>
+          </li>
+  
+          <li>
+            <a href="#">Print</a>
+          </li>
+              
+          <li>
+            <a href="#">Alternative Ads</a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="nav__item nav__item--extra">
+        <h2 class="nav__title">Technology</h2>
+        
+        <ul class="nav__ul nav__ul--extra">
+          <li>
+            <a href="#">Hardware Design</a>
+          </li>
+          
+          <li>
+            <a href="#">Software Design</a>
+          </li>
+          
+          <li>
+            <a href="#">Digital Signage</a>
+          </li>
+          
+          <li>
+            <a href="#">Automation</a>
+          </li>
+          
+          <li>
+            <a href="#">Artificial Intelligence</a>
+          </li>
+          
+          <li>
+            <a href="#">IoT</a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="nav__item">
+        <h2 class="nav__title">Legal</h2>
+        
+        <ul class="nav__ul">
+          <li>
+            <a href="#">Privacy Policy</a>
+          </li>
+          
+          <li>
+            <a href="#">Terms of Use</a>
+          </li>
+          
+          <li>
+            <a href="#">Sitemap</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    
+    <div class="legal">
+      <p>&copy; 2019 Something. All rights reserved.</p>
+      
+      <div class="legal__links">
+        <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
+      </div>
+    </div>
+  </footer>
+ </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() { 
+	const carousel = document.querySelector(".carousel"); 
+	const arrowBtns = document.querySelectorAll(".wrapper i"); 
+	const wrapper = document.querySelector(".wrapper"); 
+
+	const firstCard = carousel.querySelector(".card"); 
+	const firstCardWidth = firstCard.offsetWidth; 
+
+	let isDragging = false, 
+		startX, 
+		startScrollLeft, 
+		timeoutId; 
+
+	const dragStart = (e) => { 
+		isDragging = true; 
+		carousel.classList.add("dragging"); 
+		startX = e.pageX; 
+		startScrollLeft = carousel.scrollLeft; 
+	}; 
+
+	const dragging = (e) => { 
+		if (!isDragging) return; 
+	
+		// Calculate the new scroll position 
+		const newScrollLeft = startScrollLeft - (e.pageX - startX); 
+	
+		// Check if the new scroll position exceeds 
+		// the carousel boundaries 
+		if (newScrollLeft <= 0 || newScrollLeft >= 
+			carousel.scrollWidth - carousel.offsetWidth) { 
+			
+			// If so, prevent further dragging 
+			isDragging = false; 
+			return; 
+		} 
+	
+		// Otherwise, update the scroll position of the carousel 
+		carousel.scrollLeft = newScrollLeft; 
+	}; 
+
+	const dragStop = () => { 
+		isDragging = false; 
+		carousel.classList.remove("dragging"); 
+	}; 
+
+	const autoPlay = () => { 
+	
+		// Return if window is smaller than 800 
+		if (window.innerWidth < 800) return; 
+		
+		// Calculate the total width of all cards 
+		const totalCardWidth = carousel.scrollWidth; 
+		
+		// Calculate the maximum scroll position 
+		const maxScrollLeft = totalCardWidth - carousel.offsetWidth; 
+		
+		// If the carousel is at the end, stop autoplay 
+		if (carousel.scrollLeft >= maxScrollLeft) return; 
+		
+		// Autoplay the carousel after every 2500ms 
+		timeoutId = setTimeout(() => 
+			carousel.scrollLeft += firstCardWidth, 2500); 
+	}; 
+
+	carousel.addEventListener("mousedown", dragStart); 
+	carousel.addEventListener("mousemove", dragging); 
+	document.addEventListener("mouseup", dragStop); 
+	wrapper.addEventListener("mouseenter", () => 
+		clearTimeout(timeoutId)); 
+	wrapper.addEventListener("mouseleave", autoPlay); 
+
+	// Add event listeners for the arrow buttons to 
+	// scroll the carousel left and right 
+	arrowBtns.forEach(btn => { 
+		btn.addEventListener("click", () => { 
+			carousel.scrollLeft += btn.id === "left" ? 
+				-firstCardWidth : firstCardWidth; 
+		}); 
+	}); 
+}); 
+
+</script>
+</body> 
+
+</html>
