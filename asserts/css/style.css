@@ -136,24 +136,25 @@ header .navigation .menu-list li a:hover::after {
 
 /* Hero Page */
 #heroPage {
-    min-height: 100vh;
+    height: auto;
 }
 
 #heroPage .main {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding: 4%;
+    padding: 5%;
     padding-top: 10%;
-    padding-left: 7%;
-    min-height: 80vh;
+    padding-left: 10%;
 }
 
 #heroPage .main .content {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
     font-weight: 600;
-    line-height: 3.5rem;
+    line-height: 4.5rem;
 }
 
 #heroPage .main .btn {
@@ -219,13 +220,14 @@ header .navigation .menu-list li a:hover::after {
     height: 60px;
     background-color: #000;
 }
-@media (min-width: 1024px){
-    #heroPage {
+@media (min-height: 661px) {
+    #heroPage .main{
         height: auto;
+        min-height: auto;
     }
-}
+  }
 @media (max-width: 768px) {
-    #heroPage .main {
+    #heroPage {
         height: auto;
         min-height: 100vh;
         align-items: center;
@@ -233,7 +235,7 @@ header .navigation .menu-list li a:hover::after {
     }
 
     #heroPage .content {
-        padding-top: 0%;
+        padding-top: 10%;
         text-align: center;
     }
     
@@ -336,6 +338,12 @@ header .navigation .menu-list li a:hover::after {
     max-width: 70%;
     height: auto;
 }
+@media (min-height: 661px) {
+    #choice{
+        height: auto;
+        min-height: auto;
+    }
+  }
 @media (max-width: 768px) {
     #choice {
         min-height: 100vh;
@@ -434,6 +442,12 @@ header .navigation .menu-list li a:hover::after {
     margin: 10px 0;
 }
 
+@media (min-height: 661px) {
+    #aboutPage{
+        height: auto;
+        min-height: auto;
+    }
+  }
 
 @media (max-width: 768px) {
     #aboutPage {
@@ -632,6 +646,12 @@ header .navigation .menu-list li a:hover::after {
 #servicePage .services .service:hover .btn {
     transform: translate(-50%, -20px);
 }
+@media (min-height: 661px) {
+    #servicePage{
+        height: auto;
+        min-height: auto;
+    }
+  }
 @media (max-width: 768px){
     #servicePage {
         min-height: 100vh;
@@ -717,6 +737,12 @@ header .navigation .menu-list li a:hover::after {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+@media (min-height: 661px) {
+    #commununityPage{
+        height: auto;
+        min-height: auto;
+    }
+  }
 @media (max-width: 768px){
     #communityPage{
         height: auto;
@@ -815,7 +841,12 @@ header .navigation .menu-list li a:hover::after {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
+@media (min-height: 661px) {
+    #workshopPage{
+        height: auto;
+        min-height: auto;
+    }
+  }
 @media (max-width: 768px) {
     #workshopPage {
         height: auto;
@@ -920,7 +951,12 @@ header .navigation .menu-list li a:hover::after {
     max-width: 150%;
     height: auto;
 }
-
+@media (min-height: 661px) {
+    #internPage{
+        height: auto;
+        min-height: auto;
+    }
+  }
 @media (max-width: 768px) {
     #internPage {
         height: auto;
