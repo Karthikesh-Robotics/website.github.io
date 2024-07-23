@@ -373,15 +373,17 @@ header .navigation .menu-list li a:hover::after {
 
     #choice .head p.title {
         font-size: 1.6rem;
+        width: 100%;
     }
 
     #choice .head {
         padding: 1rem 1rem;
-        margin: auto auto;
+        margin: 0;
     }
 
     #choice .head p {
-        margin: auto auto;
+        margin: 0;
+        font-size: 1rem;
     }
 
     #choice .main {
@@ -788,9 +790,12 @@ header .navigation .menu-list li a:hover::after {
         height: auto;
         min-height: auto;
     }
+    #servicePage .services .service{
+        max-width: 25%;
+    }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
     #servicePage {
         min-height: 100vh;
         height: auto;
@@ -804,7 +809,7 @@ header .navigation .menu-list li a:hover::after {
     }
 
     #servicePage .services .service {
-        max-width: 70%;
+        max-width: 60%;
     }
 }
 
