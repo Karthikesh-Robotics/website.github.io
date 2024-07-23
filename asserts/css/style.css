@@ -17,7 +17,7 @@ header .navigation {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    height: 100px;
+    height: 80px;
     z-index: 100;
     background: #fff;
 }
@@ -137,23 +137,28 @@ header .navigation .menu-list li a:hover::after {
 /* Hero Page */
 #heroPage {
     height: auto;
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 #heroPage .main {
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     padding: 8%;
-    padding-top: 13%;
 }
 
 #heroPage .main .content {
+    padding-top: 80px;
     font-size: 3.2rem;
     letter-spacing: 0.05rem;
     font-weight: 600;
     line-height: 4.5rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
 }
 
 #heroPage .main .btn {
@@ -224,6 +229,16 @@ header .navigation .menu-list li a:hover::after {
         height: auto;
         min-height: auto;
     }
+    #heroPage .main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: auto;
+    }
+    #heroPage .main .content{
+        display: block;
+        text-align: center;
+    }
   }
 @media (max-width: 768px) {
     #heroPage {
@@ -232,10 +247,10 @@ header .navigation .menu-list li a:hover::after {
         align-items: center;
         justify-content: center;
     }
-
-    #heroPage .content {
-        padding-top: 10%;
-        text-align: center;
+    #heroPage .main .content {
+        font-size: 2.5rem;
+        letter-spacing: 0rem;
+        line-height: 3.5rem;
     }
     
     .stat-item {
@@ -341,6 +356,20 @@ header .navigation .menu-list li a:hover::after {
     #choice{
         height: auto;
         min-height: auto;
+    }
+    #choice .main {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #choice .main .block {
+        gap: 1rem;
+        margin: 1rem;
+        max-width: 80%;
+    }
+    
+    #choice .main .gif {
+        display: none;
     }
   }
 @media (max-width: 768px) {
@@ -650,6 +679,15 @@ header .navigation .menu-list li a:hover::after {
         height: auto;
         min-height: auto;
     }
+    #servicePage .services {
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 2rem;
+    }
+    
+    #servicePage .services .service {
+        max-width: 70%;
+    }
   }
 @media (max-width: 768px){
     #servicePage {
@@ -740,6 +778,12 @@ header .navigation .menu-list li a:hover::after {
     #commununityPage{
         height: auto;
         min-height: auto;
+    }
+    #communityPage .main{
+        grid-template-columns: auto auto;
+    }
+    #communityPage .main .vertical-line {
+        display: none;
     }
   }
 @media (max-width: 768px){
