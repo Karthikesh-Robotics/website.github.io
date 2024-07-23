@@ -178,7 +178,7 @@ header .navigation .menu-list li a:hover::after {
 .statistics {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     padding: 2rem;
     padding-bottom: 1rem;
@@ -239,8 +239,11 @@ header .navigation .menu-list li a:hover::after {
         display: block;
         text-align: center;
     }
+    .statistics{
+        width: 100%;
+    }
   }
-@media (max-width: 768px) {
+@media (max-width: 768px){
     #heroPage {
         height: auto;
         min-height: 100vh;
@@ -356,6 +359,15 @@ header .navigation .menu-list li a:hover::after {
     #choice{
         height: auto;
         min-height: auto;
+    }#choice .head p.title {
+        font-size: 1.6rem;
+    }
+    #choice .head {
+        padding: 2rem 1rem;
+    }
+    
+    #choice .head p {
+        margin: auto auto;
     }
     #choice .main {
         flex-direction: column;
@@ -415,7 +427,7 @@ header .navigation .menu-list li a:hover::after {
 
 #aboutPage .title {
     text-align: center;
-    margin-top: 8vh;
+    margin-top: 80px;
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -429,7 +441,7 @@ header .navigation .menu-list li a:hover::after {
     grid-template-columns: 1fr 2fr;
     align-items: center;
     justify-content: center;
-    padding: 20px 150px;
+    padding: 100px 150px;
     padding-right: 100px;
     box-sizing: border-box;
 }
@@ -775,9 +787,10 @@ header .navigation .menu-list li a:hover::after {
     transition: background-color 0.3s ease;
 }
 @media (min-height: 800px ) {
-    #commununityPage{
+    #communityPage{
         height: auto;
         min-height: auto;
+        padding: 20px;
     }
     #communityPage .main{
         grid-template-columns: auto auto;
@@ -789,6 +802,7 @@ header .navigation .menu-list li a:hover::after {
 @media (max-width: 768px){
     #communityPage{
         height: auto;
+        min-height: 100vh;
         padding: 1rem;
     }
     #communityPage .main{
