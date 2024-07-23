@@ -377,7 +377,7 @@ header .navigation .menu-list li a:hover::after {
 
     #choice .head p {
         margin: 0;
-        font-size: 1rem;
+        font-size: 1em;
     }
 
     #choice .head p.title {
@@ -793,6 +793,17 @@ header .navigation .menu-list li a:hover::after {
     #servicePage .services .service{
         max-width: 25%;
     }
+    #servicePage .services .service .head {
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 2;
+        font-size: 1rem;
+    }
+    
+    #servicePage .services .service .body {
+        color: white;
+        font-size: 0.5rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -810,6 +821,15 @@ header .navigation .menu-list li a:hover::after {
 
     #servicePage .services .service {
         max-width: 60%;
+    }
+    #servicePage .services .service .head {
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+    
+    #servicePage .services .service .body {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
     }
 }
 
