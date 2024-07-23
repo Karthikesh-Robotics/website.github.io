@@ -369,7 +369,7 @@ header .navigation .menu-list li a:hover::after {
         height: auto;
         min-height: auto;
     }
-    
+
     #choice .head {
         padding: 1rem 1rem;
         margin: 0;
@@ -444,21 +444,21 @@ header .navigation .menu-list li a:hover::after {
     justify-content: space-evenly;
     background-color: #000;
     position: relative;
-    overflow: hidden; 
-  }
-  
-  #aboutPage .title {
+    overflow: hidden;
+}
+
+#aboutPage .title {
     text-align: center;
     margin-top: 80px;
     font-size: 1.5rem;
     font-weight: bold;
-  }
-  
-  #aboutPage .title p {
+}
+
+#aboutPage .title p {
     color: #fff;
-  }
-  
-  #aboutPage .content {
+}
+
+#aboutPage .content {
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
@@ -466,43 +466,43 @@ header .navigation .menu-list li a:hover::after {
     padding: 100px 150px;
     padding-right: 100px;
     box-sizing: border-box;
-  }
-  
-  #aboutPage .image {
+}
+
+#aboutPage .image {
     position: relative;
     padding: 1rem;
     overflow: hidden;
     max-width: 80%;
-  }
-  
-  #aboutPage .text {
+}
+
+#aboutPage .text {
     margin-left: 20px;
     color: #fff;
     text-align: center;
     display: flex;
     gap: 20px;
     flex-direction: column;
-  }
-  
-  #aboutPage .head p {
+}
+
+#aboutPage .head p {
     font-size: 2rem;
     font-weight: bold;
     margin: 5px 0;
-  }
-  
-  #aboutPage .head p span.col {
+}
+
+#aboutPage .head p span.col {
     color: #0EE20E;
-  }
-  
-  #aboutPage .head .first {
+}
+
+#aboutPage .head .first {
     color: white;
-  }
-  
-  #aboutPage .para p {
+}
+
+#aboutPage .para p {
     font-size: 14px;
     line-height: 1.5;
     margin: 10px 0;
-  }
+}
 
 #aboutPage .lines {
     position: absolute;
@@ -563,12 +563,14 @@ header .navigation .menu-list li a:hover::after {
         top: 110%;
     }
 }
+
 @media (min-height: 800px) {
     #aboutPage {
         height: auto;
         min-height: auto;
         padding: 2rem;
     }
+
     #aboutPage .title {
         padding: 0.8rem;
         margin-top: 0px;
@@ -790,16 +792,18 @@ header .navigation .menu-list li a:hover::after {
         height: auto;
         min-height: auto;
     }
-    #servicePage .services .service{
+
+    #servicePage .services .service {
         max-width: 25%;
     }
+
     #servicePage .services .service .head {
         margin-bottom: 10px;
         position: relative;
         z-index: 2;
         font-size: 1rem;
     }
-    
+
     #servicePage .services .service .body {
         color: white;
         font-size: 0.5rem;
@@ -822,11 +826,12 @@ header .navigation .menu-list li a:hover::after {
     #servicePage .services .service {
         max-width: 60%;
     }
+
     #servicePage .services .service .head {
         margin-bottom: 20px;
         font-size: 1.5rem;
     }
-    
+
     #servicePage .services .service .body {
         font-size: 0.9rem;
         margin-bottom: 2rem;
@@ -1186,4 +1191,128 @@ header .navigation .menu-list li a:hover::after {
     #internPage .image img {
         max-width: 80%;
     }
+}
+
+#testimonial {
+    position: relative;
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-bottom: 6rem;
+}
+
+#testimonialPage {
+    width: 80%;
+}
+#testimonialPage .title1{
+    text-align: center;
+    margin: 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.testimonial {
+    background-color: white;
+    text-align: center;
+    padding: 30px;
+    margin: 10px;
+    position: relative;
+    border: #0EE20E solid 2px;
+}
+
+.testimonial::before,
+.testimonial::after {
+    border-top: 40px solid white;
+    border-right: 125px solid transparent;
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+}
+
+.testimonial::after {
+    border-right: none;
+    border-left: 125px solid transparent;
+    left: auto;
+    right: 0;
+}
+
+.testimonial .icon {
+    display: inline-block;
+    font-size: 80px;
+    color: #0EE20E;
+    margin-bottom: 20px;
+    opacity: 0.6;
+    text-align: left;
+}
+
+.testimonial .description {
+    font-size: 14px;
+    color: #777;
+    text-align: justify;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.testimonial .testimonial-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Align items to the start */
+    width: 100%;
+    left: 0;
+    position: relative;
+    /* Changed to relative */
+}
+
+.testimonial .pic {
+    display: inline-block;
+    border: 4px solid #ffffff;
+    box-shadow: 0 0 2px 2px #0EE20E;
+    overflow: hidden;
+    border-radius: 50%;
+    z-index: 1;
+    position: relative;
+    margin-right: 20px;
+}
+
+.testimonial .pic img {
+    width: 100%;
+    height: auto;
+}
+
+.testimonial .text {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.testimonial .name {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.testimonial .title {
+    display: block;
+    font-size: 10px;
+    color: #000;
+}
+
+.swiper-button-next{
+    color: #0EE20E;
+    top: 100%;
+    left: 60%;
+    transform: translateY(-50%);
+}
+.swiper-button-prev {
+    color: #0EE20E;
+    top: 100%;
+    left: 40%;
+    transform: translateY(-50%);
 }

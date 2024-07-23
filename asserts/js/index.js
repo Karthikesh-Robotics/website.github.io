@@ -21,6 +21,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+    var swiper = new Swiper("#testimonial-slider", {
+        slidesPerView: 3,
+        spaceBetween: 50,
+        breakpoints: {
+            1000: { slidesPerView: 3 },
+            979: { slidesPerView: 3 },
+            768: { slidesPerView: 2 },
+            650: { slidesPerView: 1 }
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 3000,
+        },
+    });
+});
+
 
 function animateNumbers() {
     var counters = document.querySelectorAll('.count');
