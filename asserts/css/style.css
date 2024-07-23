@@ -219,7 +219,11 @@ header .navigation .menu-list li a:hover::after {
     height: 60px;
     background-color: #000;
 }
-
+@media (min-width: 1024px){
+    #heroPage {
+        height: auto;
+    }
+}
 @media (max-width: 768px) {
     #heroPage .main {
         height: auto;
