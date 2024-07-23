@@ -377,6 +377,7 @@ header .navigation .menu-list li a:hover::after {
 
     #choice .head {
         padding: 1rem 1rem;
+        margin: auto auto;
     }
 
     #choice .head p {
@@ -567,7 +568,8 @@ header .navigation .menu-list li a:hover::after {
         padding: 2rem;
     }
     #aboutPage .title {
-        padding: 0rem;
+        padding: 0.8rem;
+        margin-top: 0px;
     }
 
     #aboutPage .content {
@@ -786,19 +788,9 @@ header .navigation .menu-list li a:hover::after {
         height: auto;
         min-height: auto;
     }
-
-    #servicePage .services {
-        flex-direction: column;
-        justify-content: space-evenly;
-        gap: 2rem;
-    }
-
-    #servicePage .services .service {
-        max-width: 70%;
-    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
     #servicePage {
         min-height: 100vh;
         height: auto;
@@ -915,7 +907,7 @@ header .navigation .menu-list li a:hover::after {
     #communityPage {
         height: auto;
         min-height: 100vh;
-        padding: 1rem;
+        padding: 2rem;
     }
 
     #communityPage .main {
