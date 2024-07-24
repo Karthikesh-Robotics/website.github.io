@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function() {
     var swiper = new Swiper("#testimonial-slider", {
         slidesPerView: 1,
-        spaceBetween: 50,
+        spaceBetween: 60,
         breakpoints: {
             1000: { slidesPerView: 3 },
             979: { slidesPerView: 3 },

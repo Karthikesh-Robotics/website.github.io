@@ -1206,12 +1206,14 @@ header .navigation .menu-list li a:hover::after {
 #testimonialPage {
     width: 80%;
 }
-#testimonialPage .title1{
+
+#testimonialPage .title1 {
     text-align: center;
     margin: 2rem;
     font-size: 1.2rem;
     font-weight: 700;
 }
+
 .testimonial {
     background-color: white;
     text-align: center;
@@ -1304,15 +1306,185 @@ header .navigation .menu-list li a:hover::after {
     color: #000;
 }
 
-.swiper-button-next{
+.swiper-button-next {
     color: #0EE20E;
     top: 100%;
     left: 60%;
     transform: translateY(-50%);
 }
+
 .swiper-button-prev {
     color: #0EE20E;
     top: 100%;
     left: 40%;
     transform: translateY(-50%);
+}
+
+/* Footer Page */
+#footer {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #fff;
+}
+
+#footer .connect {
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#footer .connect p {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+#footer .connect p.main1{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+#footer .connect .nl {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#footer .connect .nl input[type="email"] {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+#footer .connect .nl button {
+    padding: 10px 20px;
+    background-color: #0EE20E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#footer hr{
+    background-color: #0EE20E;
+    width: 100%;
+}
+#footer .main {
+    width: 100%;
+    display: flex;
+    justify-content:space-around;
+    padding: 30px;
+    padding-bottom: 40px;
+}
+
+#footer .main .head {
+    font-weight: bold;
+    color: black;
+    width: 20%;
+}
+
+#footer .main .head .slogan {
+    font-weight: lighter;
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+#footer .main p {
+    margin: 5px 0;
+    color: gray;
+}
+
+#footer .socail {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+}
+
+#footer .socail a {
+    color: gray;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+    font-size: larger;
+}
+
+#footer .socail a:hover {
+    color: black;
+}
+
+#footer .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #000;
+    color: #F5F5F5;
+    width: 100%;
+    font-size: 14px;
+}
+
+#footer .main .company,
+#footer .main .help,
+#footer .main .faq,
+#footer .main .res {
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+}
+
+#footer .main .company .head,
+#footer .main .help .head,
+#footer .main .faq .head,
+#footer .main .res .head {
+    padding-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    #footer .connect p.main1{
+        font-size: 1.5rem;
+    }
+    #footer .connect p {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    #footer hr{
+        display: none;
+    }
+    #footer .connect .nl {
+        gap: 8px;
+    }
+    #footer .main{
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    #footer .main .head {
+        width: 50%;
+    }
+    
+    #footer .main .head .slogan {
+        text-align: center;
+    }
+    #footer .socail{
+        align-items: center;
+        justify-content: center;
+    }    
+    #footer .footer {
+        text-align: center;
+        padding: 20px;
+        color: #505050;
+        width: 100%;
+        font-size: 13px;
+    }
+
+    #footer .main .company,
+    #footer .main .help,
+    #footer .main .faq,
+    #footer .main .res {
+        display: none;
+    }
 }
