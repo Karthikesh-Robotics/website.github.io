@@ -252,7 +252,8 @@ header .navigation .menu-list li a:hover::after {
         height: auto;
         min-height: 100vh;
         align-items: center;
-        justify-content: space-between;
+        padding-top: 70px;
+        justify-content: center;
     }
 
     #heroPage .main .content {
@@ -305,6 +306,7 @@ header .navigation .menu-list li a:hover::after {
 
 #choice .head p {
     margin: auto 10%;
+    font-size: 14px;
 }
 
 #choice .head p.title {
@@ -365,6 +367,9 @@ header .navigation .menu-list li a:hover::after {
     #choice {
         height: auto;
         min-height: auto;
+    }
+    #choice .main .gif img{
+        max-width: 50%;
     }
 }
 
@@ -1231,7 +1236,6 @@ body .container-service .card-service .box .content-service a:hover {
 @media (max-width: 768px) {
     #technologies {
         height: auto;
-        min-height: 100vh;
         justify-content: center;
         padding: 20px;
     }
