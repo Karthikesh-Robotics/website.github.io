@@ -368,22 +368,6 @@ header .navigation .menu-list li a:hover::after {
         min-height: auto;
     }
 
-    #choice .head {
-        padding: 0px;
-        margin: 0;
-    }
-    
-
-    #choice .main {
-        align-items: center;
-    }
-
-    #choice .main .block {
-        gap: 15px;
-        margin: 10px;
-        max-width: 80%;
-    }
-
     #choice .main .gif {
         display: none;
     }
@@ -408,6 +392,7 @@ header .navigation .menu-list li a:hover::after {
         gap: 15px;
         margin: 10px;
         max-width: 80%;
+        margin-top: 30px;
     }
 
     #choice .main .gif {
@@ -550,6 +535,19 @@ header .navigation .menu-list li a:hover::after {
         min-height: auto;
         padding: 20px;
     }
+    #aboutPage .content {
+        display: flex;
+        flex-direction: column;
+        padding-right: 0px;
+        padding: 20px 20px;
+        gap: 10px;
+    }
+    #aboutPage .title {
+        margin-top: 50px;
+    }
+    #aboutPage .image{
+        max-width: 60%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -687,233 +685,7 @@ body .container-service .card-service .box .content-service a:hover {
     color: #9fe206;
 }
 
-/* Animations */
-/* @-webkit-keyframes bg-scrolling-reverse {
-    100% {
-        background-position: var(--bg-width) var(--bg-height);
-    }
-}
-
-@-moz-keyframes bg-scrolling-reverse {
-    100% {
-        background-position: var(--bg-width) var(--bg-height);
-    }
-}
-
-@-o-keyframes bg-scrolling-reverse {
-    100% {
-        background-position: var(--bg-width) var(--bg-height);
-    }
-}
-
-@keyframes bg-scrolling-reverse {
-    100% {
-        background-position: var(--bg-width) var(--bg-height);
-    }
-}
-
-@-webkit-keyframes bg-scrolling {
-    0% {
-        background-position: var(--bg-width) var(--bg-height);
-    }
-}
-
-@-moz-keyframes bg-scrolling {
-    0% {
-        background-position: var(--bg-width) var(--bg-height);
-    }
-}
-
-@-o-keyframes bg-scrolling {
-    0% {
-        background-position: var(--bg-width) var(--bg-height);
-    }
-}
-
-@keyframes bg-scrolling {
-    0% {
-        background-position: var(--bg-width) var(--bg-height);
-    }
-}
-
-#servicePage {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    color: #999;
-    font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
-    text-align: center;
-    background: var(--bg-url) repeat 0 0;
-    -webkit-animation: bg-scrolling-reverse .92s infinite;
-    -moz-animation: bg-scrolling-reverse .92s infinite;
-    -o-animation: bg-scrolling-reverse .92s infinite;
-    animation: bg-scrolling-reverse .92s infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-timing-function: linear;
-    -o-animation-timing-function: linear;
-    animation-timing-function: linear;
-}
-
-#servicePage .head {
-    text-align: center;
-    margin-top: 8vh;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #000;
-}
-
-#servicePage .services {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    text-align: center;
-}
-
-#servicePage .services .service {
-    max-width: 18%;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    z-index: 2;
-}
-
-#servicePage .services .service .outer-box {
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    border-radius: 10px;
-}
-
-#servicePage .services .service .inner-box {
-    background: linear-gradient(to right, black 50%, rgba(0, 0, 0, 0.9) 50%);
-    padding: 25px;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    border-radius: 10px;
-    position: relative;
-    z-index: 1;
-}
-
-.top-right-number {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 50%;
-    text-align: right;
-    opacity: 0.5;
-    font-size: 4rem;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.2);
-    z-index: 1;
-}
-
-#servicePage .services .service .head {
-    color: #fff;
-    font-weight: bold;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 2;
-    font-size: 1.5rem;
-}
-
-#servicePage .services .service .body {
-    color: white;
-    font-size: 0.9rem;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 2rem;
-}
-
-#servicePage .services .service .btn {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    transition: all 0.3s ease;
-}
-
-#servicePage .services .service .btn button {
-    padding: 10px;
-    margin-bottom: 12px;
-    border: none;
-    background-color: #0EE20E;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.7rem;
-    font-weight: 500;
-}
-
-#servicePage .services .service:hover .outer-box {
-    transform: translateY(10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-#servicePage .services .service:hover .inner-box {
-    transform: translateY(-30px);
-}
-
-#servicePage .services .service:hover .btn {
-    transform: translate(-50%, -20px);
-}
-
-@media (min-height: 800px) {
-    #servicePage {
-        height: auto;
-        min-height: auto;
-    }
-
-    #servicePage .services .service {
-        max-width: 25%;
-    }
-
-    #servicePage .services .service .head {
-        margin-bottom: 10px;
-        position: relative;
-        z-index: 2;
-        font-size: 1rem;
-    }
-
-    #servicePage .services .service .body {
-        color: white;
-        font-size: 0.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    #servicePage {
-        min-height: 100vh;
-        height: auto;
-        gap: 2rem;
-    }
-
-    #servicePage .services {
-        flex-direction: column;
-        justify-content: space-evenly;
-        gap: 2rem;
-    }
-
-    #servicePage .services .service {
-        max-width: 60%;
-    }
-
-    #servicePage .services .service .head {
-        margin-bottom: 20px;
-        font-size: 1.5rem;
-    }
-
-    #servicePage .services .service .body {
-        font-size: 0.9rem;
-        margin-bottom: 2rem;
-    }
-} */
-
 /* Community Page */
-
 #communityPage {
     min-height: 100vh;
     display: flex;
