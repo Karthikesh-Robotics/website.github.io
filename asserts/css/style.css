@@ -252,7 +252,7 @@ header .navigation .menu-list li a:hover::after {
         height: auto;
         min-height: 100vh;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
     }
 
     #heroPage .main .content {
@@ -304,7 +304,6 @@ header .navigation .menu-list li a:hover::after {
 }
 
 #choice .head p {
-    font-size: 17px;
     margin: auto 10%;
 }
 
@@ -366,10 +365,6 @@ header .navigation .menu-list li a:hover::after {
     #choice {
         height: auto;
         min-height: auto;
-    }
-
-    #choice .main .gif {
-        display: none;
     }
 }
 
