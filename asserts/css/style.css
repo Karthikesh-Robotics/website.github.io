@@ -174,8 +174,10 @@ header .navigation .menu-list li a:hover::after {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+
 #herostat {
-    padding: 20px;
+    padding: 0px 8% 0px 8%;
     display: flex;
     justify-content: center;
 }
@@ -184,6 +186,7 @@ header .navigation .menu-list li a:hover::after {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+    padding: 0 20px; /* Added padding for equal left and right spacing */
 }
 
 .stat-item {
@@ -219,6 +222,7 @@ header .navigation .menu-list li a:hover::after {
 @media (min-width: 300px) {
     .statistics {
         grid-template-columns: repeat(2, 1fr); /* Two items per row for tablets */
+        padding: 0 10px; /* Adjusted padding for smaller screens */
     }
 }
 
@@ -226,13 +230,13 @@ header .navigation .menu-list li a:hover::after {
 @media (min-width: 1024px) {
     .statistics {
         grid-template-columns: repeat(4, 1fr); /* Four items per row for desktops */
+        padding: 0 40px; /* Increased padding for larger screens */
     }
 
     .stat-item {
         margin: 10px;
     }
 }
-
 
 @media (min-height: 661px) {
     #heroPage {
@@ -262,7 +266,7 @@ header .navigation .menu-list li a:hover::after {
         height: auto;
         min-height: 100vh;
         align-items: center;
-        padding-top: 70px;
+        
         justify-content: center;
     }
 
@@ -289,9 +293,6 @@ header .navigation .menu-list li a:hover::after {
         font-size: 10px;
     }
 
-    .vertical-line {
-        display: none;
-    }
 }
 
 
@@ -301,7 +302,7 @@ header .navigation .menu-list li a:hover::after {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 5%;
+    padding: 8%;
 }
 
 #choice .head {
@@ -331,6 +332,7 @@ header .navigation .menu-list li a:hover::after {
 #choice .main {
     display: flex;
     flex-direction: row;
+    padding: 8%;
 }
 
 #choice .main .block {
@@ -466,6 +468,9 @@ header .navigation .menu-list li a:hover::after {
     padding: 10px;
     overflow: hidden;
     max-width: 90%;
+    width: 250px; /* Set fixed width */
+    height: 250px;
+
 }
 
 #aboutPage .text {
@@ -1055,7 +1060,6 @@ body .container-service .card-service .box .content-service a:hover {
 #testimonial {
     position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -1064,8 +1068,7 @@ body .container-service .card-service .box .content-service a:hover {
 }
 
 #testimonialPage {
-    width: 90%; /* Adjusted for better mobile view */
-    max-width: 1200px; /* Max width to prevent stretching on large screens */
+    width: 80%;
 }
 
 #testimonialPage .title1 {
@@ -1082,7 +1085,6 @@ body .container-service .card-service .box .content-service a:hover {
     margin: 10px;
     position: relative;
     border: #0EE20E solid 2px;
-    border-radius: 10px; /* Added border-radius for better appearance */
 }
 
 .testimonial::before,
@@ -1103,7 +1105,7 @@ body .container-service .card-service .box .content-service a:hover {
 
 .testimonial .icon {
     display: inline-block;
-    font-size: 60px;
+    font-size: 80px;
     color: #0EE20E;
     margin-bottom: 20px;
     opacity: 0.6;
@@ -1136,8 +1138,6 @@ body .container-service .card-service .box .content-service a:hover {
     z-index: 1;
     position: relative;
     margin-right: 20px;
-    width: 80px;
-    height: 80px; /* Added fixed size for profile pictures */
 }
 
 .testimonial .pic img {
@@ -1149,7 +1149,7 @@ body .container-service .card-service .box .content-service a:hover {
     text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     gap: 10px;
 }
@@ -1159,7 +1159,7 @@ body .container-service .card-service .box .content-service a:hover {
     font-weight: bold;
     color: #000;
     text-transform: capitalize;
-    text-align: left; /* Adjusted text alignment */
+    text-align: center;
 }
 
 .testimonial .title {
@@ -1168,101 +1168,19 @@ body .container-service .card-service .box .content-service a:hover {
     color: #000;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.swiper-button-next {
     color: #0EE20E;
     top: 100%;
+    left: 60%;
     transform: translateY(-50%);
 }
 
-/* Media Queries for Responsive Design */
-
-/* Mobile Devices */
-@media (max-width: 599px) {
-    .testimonial .icon {
-        font-size: 40px;
-    }
-
-    .testimonial .description {
-        font-size: 14px;
-    }
-
-    .testimonial .pic {
-        width: 60px;
-        height: 60px;
-    }
-
-    .swiper-button-next {
-        left: 75%;
-    }
-
-    .swiper-button-prev {
-        left: 25%;
-    }
+.swiper-button-prev {
+    color: #0EE20E;
+    top: 100%;
+    left: 40%;
+    transform: translateY(-50%);
 }
-
-/* Tablet and larger screens */
-@media (min-width: 600px) {
-    .testimonial {
-        padding: 20px;
-    }
-
-    .testimonial .icon {
-        font-size: 60px;
-    }
-
-    .testimonial .description {
-        font-size: 16px;
-    }
-
-    .testimonial .pic {
-        width: 100px;
-        height: 100px;
-    }
-
-    .swiper-button-next {
-        left: 60%;
-    }
-
-    .swiper-button-prev {
-        left: 40%;
-    }
-}
-
-/* Desktop and larger screens */
-@media (min-width: 1024px) {
-    #testimonial {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .testimonial {
-        width: calc(50% - 20px); /* Two testimonials per row */
-        margin: 10px;
-    }
-
-    .testimonial .icon {
-        font-size: 80px;
-    }
-
-    .testimonial .description {
-        font-size: 18px;
-    }
-
-    .testimonial .pic {
-        width: 120px;
-        height: 120px;
-    }
-
-    .swiper-button-next {
-        left: 60%;
-    }
-
-    .swiper-button-prev {
-        left: 40%;
-    }
-}
-
 
 #technologies {
     height: auto;
